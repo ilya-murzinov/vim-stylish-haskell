@@ -14,10 +14,10 @@ endfunction
 function! s:StylishHaskell()
   if executable(g:stylish_haskell_command)
     call s:RunStylishHaskell()
-  elseif !exists("s:exec_warned")
-    let s:exec_warned = 1
+  else
     echom "stylish-haskell executable not found"
-  endif
+    call s:RunStylishHaskell()
+endif
 endfunction
 
 function! s:RunStylishHaskell()
